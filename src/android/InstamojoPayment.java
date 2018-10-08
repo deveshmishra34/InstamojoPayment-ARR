@@ -52,6 +52,7 @@ public class InstamojoPayment extends CordovaPlugin {
             PUBLIC_CALLBACKS = callbackContext;
             Context context = this.cordova.getActivity().getApplicationContext();
             String url = args.getJSONObject(0).getString("longurl");
+            Log.d("Instamojo", url);
             Intent intent = new Intent(context, InstamojoActivity.class);
             intent.putExtra("url", url);
             cordova.startActivityForResult((CordovaPlugin) this, intent, 0);
@@ -59,12 +60,13 @@ public class InstamojoPayment extends CordovaPlugin {
             PluginResult pluginResult = new PluginResult(PluginResult.Status.NO_RESULT);
             pluginResult.setKeepCallback(true); // Keep callback
         }catch(Exception e){
-            callbackContext.error("Something went wrong");
+            callbackContext.error("Something went wrong "+ e.getMessage());
         }
     }
 
     public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         // if (resultCode == cordova.getActivity().RESULT_OK) {
+        if(data != null){
             Log.d("Instamojo", "Return" + cordova.getActivity().RESULT_OK);
             Bundle extras = data.getExtras();// Get data sent by the Intent
             String orderId = extras.getString("orderId"); // data parameter will be send from the other activity.
@@ -80,6 +82,7 @@ public class InstamojoPayment extends CordovaPlugin {
                 result.setKeepCallback(true);
                 PUBLIC_CALLBACKS.sendPluginResult(result);
             }
+        }
 
         // }
     }
