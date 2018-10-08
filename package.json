@@ -1,0 +1,25 @@
+{
+  "name": "cordova.plugin.instamojopayment",
+  "version": "1.0.0",
+  "description": "This is cordova plugin for Instamojo payment gateway.",
+  "cordova": {
+    "id": "cordova.plugin.instamojopayment",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deveshmishra34/InstamojoPayment-ARR.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "Devesh kumar mishra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deveshmishra34/InstamojoPayment-ARR/issues"
+  },
+  "homepage": "https://github.com/deveshmishra34/InstamojoPayment-ARR#readme"
+}
