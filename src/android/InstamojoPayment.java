@@ -47,6 +47,7 @@ public class InstamojoPayment extends CordovaPlugin {
     }
 
     private void pay(JSONArray args, CallbackContext callbackContext) {
+        Log.d("Instamojo", "Called " + args.toString());
         try{
             PUBLIC_CALLBACKS = callbackContext;
             Context context = this.cordova.getActivity().getApplicationContext();
@@ -54,7 +55,6 @@ public class InstamojoPayment extends CordovaPlugin {
             Intent intent = new Intent(context, InstamojoActivity.class);
             intent.putExtra("url", url);
             cordova.startActivityForResult((CordovaPlugin) this, intent, 0);
-            Log.d("Instamojo", "Called");
             // Send no result, to execute the callbacks later
             PluginResult pluginResult = new PluginResult(PluginResult.Status.NO_RESULT);
             pluginResult.setKeepCallback(true); // Keep callback
